@@ -1,0 +1,35 @@
+run_name: pannuke_full_prompt_seed17
+output_dir: outputs
+data:
+  manifest: data/manifests/pannuke.jsonl
+  train_split: train
+  val_split: val
+  max_train_records: null
+  max_val_records: null
+  num_workers: 8
+  heatmap_sigma: 2.0
+  color_jitter_strength: 0.15
+model:
+  base_channels: 32
+  prompt_dim: 128
+  style_channels: 32
+  num_operations: 2
+  num_targets: 5
+  use_style_prompt: true
+  factorized_task_prompt: true
+  use_channel_prompt: true
+  use_spatial_prompt: true
+training:
+  batch_size: 32
+  learning_rate: 0.0005
+  weight_decay: 0.01
+  epochs: 50
+  seed: 17
+  amp: true
+  deterministic: false
+  gradient_clip_norm: 1.0
+evaluation:
+  segmentation_threshold: 0.5
+  detection_threshold: 0.1
+  detection_minimum_distance: 3
+  detection_matching_radius: 6.0

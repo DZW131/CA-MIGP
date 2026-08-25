@@ -1,0 +1,15 @@
+datasets:
+  pannuke:
+    role: train_validation_and_internal_test
+    source: https://warwick.ac.uk/fac/cross_fac/tia/data/pannuke
+    mirror: https://huggingface.co/datasets/MedOtter/PanNuke
+    split_policy: "fold1=train, fold2=validation, fold3=test"
+    manifest: data/manifests/pannuke.jsonl
+  nuinsseg:
+    role: frozen_external_test
+    source: https://doi.org/10.5281/zenodo.10518968
+    manifest: data/manifests/nuinsseg.jsonl
+  cryonuseg:
+    role: frozen_external_test
+    source: https://github.com/masih4/CryoNuSeg
+    manifest_dir: data/manifests/cryonuseg

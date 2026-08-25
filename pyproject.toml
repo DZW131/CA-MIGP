@@ -1,0 +1,54 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ca-migp"
+version = "0.1.0"
+description = "Contact-aware instance geometry prototypes with Dynamic Gram-style prompting for nucleus segmentation"
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Yanhong Du"},
+  {name = "Qirong Bu", email = "boqirong@nwu.edu.cn"},
+  {name = "Fengming Liu"},
+  {name = "Jiaqing Zhang"},
+  {name = "Yulin Deng"},
+]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "numpy>=1.24",
+  "Pillow>=10.0",
+  "pyarrow>=16.0",
+  "scipy>=1.10",
+  "scikit-image>=0.22",
+  "torch>=2.5",
+  "PyYAML>=6.0",
+  "roifile>=2024.5.24",
+  "gdown>=5.2",
+  "zstandard>=0.22",
+  "zarr>=2.16,<3",
+]
+
+[project.urls]
+Repository = "https://github.com/DZW131/CA-MIGP"
+Issues = "https://github.com/DZW131/CA-MIGP/issues"
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0",
+  "ruff>=0.9",
+]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = ["external"]

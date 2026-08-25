@@ -1,0 +1,48 @@
+run_name: pannuke_geometry_no_orth_seed42
+output_dir: outputs
+data:
+  manifest: data/manifests/pannuke.jsonl
+  train_split: train
+  val_split: val
+  max_train_records: null
+  max_val_records: null
+  num_workers: 8
+  heatmap_sigma: 2.0
+  color_jitter_strength: 0.15
+  geometry_target_mode: instance
+  geometry_rim_threshold: 0.15
+  geometry_shell_threshold: 0.35
+  geometry_contact_radius: 3.0
+  geometry_near_background_radius: 3.0
+model:
+  base_channels: 32
+  prompt_dim: 128
+  style_channels: 32
+  num_operations: 2
+  num_targets: 5
+  use_style_prompt: true
+  factorized_task_prompt: true
+  use_channel_prompt: true
+  use_spatial_prompt: true
+  use_geometry_prototypes: true
+  geometry_num_prototypes: 5
+  geometry_momentum: 0.99
+  geometry_temperature: 0.1
+  geometry_max_samples_per_prototype: 256
+  geometry_style_direction_mode: none
+  geometry_prototype_weights: [1.0, 2.0, 1.0, 1.0, 1.0]
+training:
+  batch_size: 32
+  learning_rate: 0.0005
+  weight_decay: 0.01
+  epochs: 50
+  seed: 42
+  amp: true
+  deterministic: false
+  gradient_clip_norm: 1.0
+  geometry_loss_weight: 0.1
+evaluation:
+  segmentation_threshold: 0.5
+  detection_threshold: 0.1
+  detection_minimum_distance: 3
+  detection_matching_radius: 6.0
