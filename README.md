@@ -10,6 +10,12 @@ cross-tissue exponential-moving-average prototypes. The complete model combines 
 geometry objective with an auxiliary Dynamic Gram-style appearance prompt. At inference,
 the geometry projector and prototype bank are inactive.
 
+The five-seed revised-manuscript source snapshot, 20 portable run configurations,
+aggregate results, and paired analysis are in
+[`paper_revision_20260927/`](paper_revision_20260927/README.md). The working-tree
+implementation below includes later extensions and is not byte-identical to the
+frozen training source used for those 20 runs.
+
 ## Method components
 
 - **Dynamic Gram:** image-conditioned channel and spatial modulation plus a dynamic output head.
@@ -65,8 +71,10 @@ python scripts/validate_manifest.py data/manifests/pannuke.jsonl
 
 ## Paper configurations
 
-The public files retain the run names used by the experiment artifacts. Only machine-local
-output and manifest paths were changed to repository-relative paths.
+The configurations below document the original three-seed controls. The complete
+five-seed A--D matrix, including seeds 101 and 202, is in
+[`paper_revision_20260927/configs/`](paper_revision_20260927/configs/).
+Only machine-local output and manifest paths were changed to repository-relative paths.
 
 | Cell/control | Mechanisms | Configuration family |
 |---|---|---|
