@@ -183,14 +183,17 @@ python scripts/benchmark_model.py \
 
 ## Reported results
 
-Three-seed means from the manuscript are shown for orientation. Recomputed values depend on
-the downloaded dataset releases, software stack, and nondeterministic CUDA execution.
+Five-seed means from the revised manuscript are shown for orientation. The paired
+run summaries, analysis script, and exact archived training source are in
+[`paper_revision_20260927/`](paper_revision_20260927/README.md). Recomputed values
+depend on the downloaded dataset releases, software stack, and nondeterministic
+CUDA execution.
 
 | Frozen test | Dynamic Gram (B) mean PQ | Complete (D) mean PQ | D minus B |
 |---|---:|---:|---:|
-| PanNuke fold 3 | 0.559 | 0.561 | 0.0018 |
-| NuInsSeg | 0.332 | 0.335 | 0.0031 |
-| CryoNuSeg A1R1 | 0.433 | 0.442 | 0.0083 |
+| PanNuke fold 3 | 0.5601 | 0.5627 | 0.0026 |
+| NuInsSeg | 0.3317 | 0.3365 | 0.0048 |
+| CryoNuSeg A1R1 | 0.4361 | 0.4443 | 0.0083 |
 
 The complete checkpoint contains 2.58 million parameters, while its active inference graph
 contains 2.56 million parameters and requires 43.36 GFLOPs for a 256 x 256 image.
